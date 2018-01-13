@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 
 // view
-import Props from '../views/props'
 import Home from '../views'
+import Props from '../views/props'
+import State from '../views/state'
+import Flex from '../views/flex'
 
 
 // 路由配置
@@ -11,18 +13,30 @@ const RootNavigator = StackNavigator({
   home: {
     screen: Home,
     navigationOptions: {
-      headerTitle: '首页'
+      headerTitle: '学习列表'
     }
   },
   props: {
     screen: Props,
     navigationOptions: {
-      headerTitle: 'Props'
+      headerTitle: '属性'
+    }
+  },
+  state: {
+    screen: State,
+    navigationOptions: {
+      headerTitle: '状态'
+    }
+  },
+  flex: {
+    screen: Flex,
+    navigationOptions: {
+      headerTitle: '布局'
     }
   }
 });
 
-export default class MyApp2 extends Component{
+export default class MyApp extends Component{
   render() {
     return <RootNavigator/>
   }

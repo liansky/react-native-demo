@@ -6,10 +6,17 @@ export default class Home extends Component {
     const navigation = this.props.navigation
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>学习列表</Text>
         <Button
           onPress={() => navigation.navigate('props')}
           title="Props"
+        />
+        <Button
+          onPress={() => navigation.navigate('state')}
+          title="State"
+        />
+        <Button
+          onPress={() => navigation.navigate('flex')}
+          title="Flex"
         />
       </View>
     );
