@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 
 // view
-import Home from '../views'
-import Props from '../views/props'
-import State from '../views/state'
-import Flex from '../views/flex'
+import Home from '../views';
+import Props from '../views/props';
+import State from '../views/state';
+import Flex from '../views/flex';
+import Form from '../views/form';
 
 
 // 路由配置
@@ -32,6 +33,12 @@ const RootNavigator = StackNavigator({
     screen: Flex,
     navigationOptions: {
       headerTitle: '布局'
+    }
+  },
+  form: {
+    screen: Form,
+    navigationOptions: {
+      headerTitle: '表单'
     }
   }
 });

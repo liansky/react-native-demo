@@ -18,6 +18,10 @@ export default class Home extends Component {
           onPress={() => navigation.navigate('flex')}
           title="Flex"
         />
+        <Button
+          onPress={() => navigation.navigate('form')}
+          title="From"
+        />
       </View>
     );
   }
