@@ -1,28 +1,57 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, StyleSheet, ScrollView } from 'react-native';
+import { titleColor, contentColor, borderColor, bgColor } from '../assets/style'
 
-export default class Home extends Component {
+
+class Cell extends Component {
+  constructor (props) {
+    super(props)
+  }
+
   render () {
     const navigation = this.props.navigation
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button
-          onPress={() => navigation.navigate('props')}
-          title="Props"
-        />
-        <Button
-          onPress={() => navigation.navigate('state')}
-          title="State"
-        />
-        <Button
-          onPress={() => navigation.navigate('flex')}
-          title="Flex"
-        />
-        <Button
-          onPress={() => navigation.navigate('form')}
-          title="From"
-        />
+      <View style={styles.cell}>
+        <Text
+          style={styles.cell_info}
+          onPress={() => navigation.navigate(this.props.route)}
+        >{this.props.title}</Text>
       </View>
     );
   }
 }
+
+
+export default class Home extends Component {
+  render () {
+    return (
+      <ScrollView style={styles.bg}>
+        <Cell route={'props'} title={'Props'} {...this.props}/>
+        <Cell route={'state'} title={'State'} {...this.props}/>
+        <Cell route={'flex'} title={'Flex'} {...this.props}/>
+        <Cell route={'form'} title={'Form'} {...this.props}/>
+        <Cell route={'scroll'} title={'Scroll'} {...this.props}/>
+      </ScrollView>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  bg: {
+    backgroundColor: bgColor
+  },
+  cell: {
+    backgroundColor: '#fff',
+    paddingLeft: 20,
+    paddingRight: 20,
+    borderColor: borderColor,
+    borderStyle: 'solid',
+    borderBottomWidth: 0.5,
+  },
+  cell_info: {
+    height: 50,
+    lineHeight: 50,
+    fontSize: 14,
+    color: titleColor,
+  }
+})
