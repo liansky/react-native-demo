@@ -8,6 +8,7 @@ import State from '../views/state';
 import Flex from '../views/flex';
 import Form from '../views/form';
 import Scroll from '../views/scroll';
+import LifeCycle from '../views/lifeCycle';
 
 
 // 路由配置
@@ -46,6 +47,12 @@ const RootNavigator = StackNavigator({
     screen: Scroll,
     navigationOptions: {
       headerTitle: '滚动视图'
+    }
+  },
+  lifeCycle: {
+    screen: LifeCycle,
+    navigationOptions: {
+      headerTitle: '生命周期'
     }
   }
 });

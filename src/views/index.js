@@ -28,6 +28,7 @@ export default class Home extends Component {
       <ScrollView style={styles.bg}>
         <Cell route={'props'} title={'Props'} {...this.props}/>
         <Cell route={'state'} title={'State'} {...this.props}/>
+        <Cell route={'lifeCycle'} title={'LifeCycle'} {...this.props}/>
         <Cell route={'flex'} title={'Flex'} {...this.props}/>
         <Cell route={'form'} title={'Form'} {...this.props}/>
         <Cell route={'scroll'} title={'Scroll'} {...this.props}/>
@@ -49,8 +50,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
   },
   cell_info: {
-    height: 50,
-    lineHeight: 50,
+    lineHeight: 49,
     fontSize: 14,
     color: titleColor,
   }
