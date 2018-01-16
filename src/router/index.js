@@ -9,6 +9,7 @@ import Flex from '../views/flex';
 import Form from '../views/form';
 import Scroll from '../views/scroll';
 import LifeCycle from '../views/lifeCycle';
+import Refresh from '../views/scroll/refresh';
 
 
 // 路由配置
@@ -53,6 +54,12 @@ const RootNavigator = StackNavigator({
     screen: LifeCycle,
     navigationOptions: {
       headerTitle: '生命周期'
+    }
+  },
+  refresh: {
+    screen: Refresh,
+    navigationOptions: {
+      headerTitle: '下拉刷新'
     }
   }
 });

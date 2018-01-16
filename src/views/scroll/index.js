@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, RefreshControl } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { colorRed } from '../../assets/style'
 
 /**
@@ -29,11 +29,7 @@ export default class Scroll extends Component {
           arr.push(i)
         }
         return arr
-      })(),
-      isRefreshing: false,
-      loaded: 0,
-      rowData: Array.from(new Array(20)).map(
-        (val, i) => ({text: 'Initial row ' + i, clicks: 0}))
+      })()
     }
   }
 
@@ -49,41 +45,11 @@ export default class Scroll extends Component {
     console.log('onMomentumScrollEnd')
   }
 
-  onRefresh () {
-    this.setState({isRefreshing: true});
-    setTimeout(() => {
-      // prepend 10 items
-      const rowData = Array.from(new Array(10))
-        .map((val, i) => ({
-          text: 'Loaded row ' + (+this.state.loaded + i),
-          clicks: 0,
-        }))
-        .concat(this.state.rowData);
-
-      this.setState({
-        loaded: this.state.loaded + 10,
-        isRefreshing: false,
-        rowData: rowData,
-      });
-    }, 5000);
-  }
-
   render () {
     console.log(this.state.list)
     return (
       <ScrollView
         style={styles.bg}
-        refreshControl={
-          <RefreshControl
-            refreshing={this.state.isRefreshing}
-            onRefresh={this.onRefresh}
-            tintColor="#ff0000"
-            title="Loading..."
-            titleColor="#00ff00"
-            colors={['#ff0000', '#00ff00', '#0000ff']}
-            progressBackgroundColor="#ffff00"
-          />
-        }
       >
         <Text>根ScrollView默认窗口高度</Text>
         <Text>horizontal: true来支持横向滚动</Text>
@@ -118,8 +84,7 @@ const styles = StyleSheet.create({
   hoz: {
     marginTop: 20,
     backgroundColor: '#fff',
-    paddingTop: 10,
-    paddingBottom: 10
+    padding: 10
   },
   hozItem: {
     height: 100,
@@ -131,8 +96,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden'
   },
   hozItemLast: {
-    marginRight: 0,
-    backgroundColor: 'blue'
+    marginRight: 20
   },
   hozItemText: {
     color: '#fff',

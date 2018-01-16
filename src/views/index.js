@@ -9,12 +9,12 @@ class Cell extends Component {
   }
 
   render () {
-    const navigation = this.props.navigation
+    const { navigate } = this.props.navigation
     return (
       <View style={styles.cell}>
         <Text
           style={styles.cell_info}
-          onPress={() => navigation.navigate(this.props.route)}
+          onPress={() => navigate(this.props.route)}
         >{this.props.title}</Text>
       </View>
     );
@@ -31,7 +31,8 @@ export default class Home extends Component {
         <Cell route={'lifeCycle'} title={'LifeCycle'} {...this.props}/>
         <Cell route={'flex'} title={'Flex'} {...this.props}/>
         <Cell route={'form'} title={'Form'} {...this.props}/>
-        <Cell route={'scroll'} title={'Scroll'} {...this.props}/>
+        <Cell route={'scroll'} title={'ScrollView'} {...this.props}/>
+        <Cell route={'refresh'} title={'RefreshControl'} {...this.props}/>
       </ScrollView>
     );
   }
@@ -48,9 +49,10 @@ const styles = StyleSheet.create({
     borderColor: borderColor,
     borderStyle: 'solid',
     borderBottomWidth: 0.5,
+    paddingBottom: 0.5
   },
   cell_info: {
-    lineHeight: 49,
+    lineHeight: 50,
     fontSize: 14,
     color: titleColor,
   }
