@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Button, StyleSheet, ScrollView } from 'react-native';
-import { titleColor, contentColor, borderColor, bgColor } from '../assets/style'
+import { View, Text, StyleSheet, ScrollView, TouchableHighlight } from 'react-native';
+import { titleColor, borderColor, bgColor } from '../assets/style'
 
 
 class Cell extends Component {
@@ -11,12 +11,18 @@ class Cell extends Component {
   render () {
     const { navigate } = this.props.navigation
     return (
-      <View style={styles.cell}>
-        <Text
-          style={styles.cell_info}
-          onPress={() => navigate(this.props.route)}
-        >{this.props.title}</Text>
-      </View>
+      <TouchableHighlight
+        activeOpacity={0.9}
+        onPress={() => navigate(this.props.route)}
+        underlayColor={'#999'}
+      >
+        <View style={styles.cell}>
+          <Text
+            style={styles.cell_info}
+          >{this.props.title}</Text>
+          {/*<View style={styles.cell_arrow}/>*/}
+        </View>
+      </TouchableHighlight>
     );
   }
 }
@@ -35,6 +41,7 @@ export default class Home extends Component {
         <Cell route={'refresh'} title={'RefreshControl'} {...this.props}/>
         <Cell route={'flatList'} title={'FlatList'} {...this.props}/>
         <Cell route={'touch'} title={'Touch'} {...this.props}/>
+        <Cell route={'animate'} title={'Animate'} {...this.props}/>
       </ScrollView>
     );
   }
@@ -51,11 +58,22 @@ const styles = StyleSheet.create({
     borderColor: borderColor,
     borderStyle: 'solid',
     borderBottomWidth: 0.5,
-    paddingBottom: 0.5
+    paddingBottom: 0.5,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
   cell_info: {
     lineHeight: 50,
     fontSize: 14,
     color: titleColor,
+  },
+  cell_arrow: {
+    height: 10,
+    width: 10,
+    borderColor: borderColor,
+    borderStyle: 'solid',
+    borderBottomWidth: 1,
+    borderRightWidth: 1
   }
 })

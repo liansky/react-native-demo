@@ -11,7 +11,8 @@ import Scroll from '../views/scroll';
 import LifeCycle from '../views/lifeCycle';
 import Refresh from '../views/scroll/refresh';
 import FlatList from '../views/list';
-import Touch from '../views/event';
+import Touch from '../views/touch';
+import MyAnimate from '../views/animat';
 
 
 // 路由配置
@@ -74,6 +75,12 @@ const RootNavigator = StackNavigator({
     screen: Touch,
     navigationOptions: {
       headerTitle: '触摸反馈'
+    }
+  },
+  animate: {
+    screen: MyAnimate,
+    navigationOptions: {
+      headerTitle: '动画'
     }
   }
 });

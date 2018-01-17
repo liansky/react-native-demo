@@ -40,7 +40,6 @@ export default class Scroll extends Component {
   }
 
   render () {
-    console.log(this.state.list2)
     return (
       <ScrollView
         style={styles.bg}
