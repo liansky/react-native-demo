@@ -33,6 +33,8 @@ export default class Home extends Component {
         <Cell route={'form'} title={'Form'} {...this.props}/>
         <Cell route={'scroll'} title={'ScrollView'} {...this.props}/>
         <Cell route={'refresh'} title={'RefreshControl'} {...this.props}/>
+        <Cell route={'flatList'} title={'FlatList'} {...this.props}/>
+        <Cell route={'touch'} title={'Touch'} {...this.props}/>
       </ScrollView>
     );
   }

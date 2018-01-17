@@ -23,13 +23,7 @@ export default class Scroll extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      list: (() => {
-        const arr = []
-        for (let i = 0; i < 10; i++) {
-          arr.push(i)
-        }
-        return arr
-      })()
+      list: Array.from(new Array(5)).map((val, i) => i )
     }
   }
 
@@ -46,7 +40,7 @@ export default class Scroll extends Component {
   }
 
   render () {
-    console.log(this.state.list)
+    console.log(this.state.list2)
     return (
       <ScrollView
         style={styles.bg}

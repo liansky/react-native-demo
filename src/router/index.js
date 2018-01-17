@@ -10,6 +10,8 @@ import Form from '../views/form';
 import Scroll from '../views/scroll';
 import LifeCycle from '../views/lifeCycle';
 import Refresh from '../views/scroll/refresh';
+import FlatList from '../views/list';
+import Touch from '../views/event';
 
 
 // 路由配置
@@ -60,6 +62,18 @@ const RootNavigator = StackNavigator({
     screen: Refresh,
     navigationOptions: {
       headerTitle: '下拉刷新'
+    }
+  },
+  flatList: {
+    screen: FlatList,
+    navigationOptions: {
+      headerTitle: '长列表'
+    }
+  },
+  touch: {
+    screen: Touch,
+    navigationOptions: {
+      headerTitle: '触摸反馈'
     }
   }
 });
