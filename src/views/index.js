@@ -20,7 +20,7 @@ class Cell extends Component {
           <Text
             style={styles.cell_info}
           >{this.props.title}</Text>
-          {/*<View style={styles.cell_arrow}/>*/}
+          <View style={styles.cell_arrow}/>
         </View>
       </TouchableHighlight>
     );
@@ -74,6 +74,11 @@ const styles = StyleSheet.create({
     borderColor: borderColor,
     borderStyle: 'solid',
     borderBottomWidth: 1,
-    borderRightWidth: 1
+    borderRightWidth: 1,
+    transform: [
+      {
+        rotateZ: '-45deg'
+      }
+    ]
   }
 })

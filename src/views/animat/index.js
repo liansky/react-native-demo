@@ -32,13 +32,13 @@ export default class MyAnimat extends Component {
       }),
 
       Animated.timing(this.state.rotateValue, {
-        toValue: 2,         //
+        toValue: 0.2,         //
         duration: 1000     // 动画间隔
       })
     ]).start(() => {
       // 恢复初始状态
-      this.state.leftValue.setValue(0);
-      this.state.rotateValue.setValue(0);
+      // this.state.leftValue.setValue(0);
+      // this.state.rotateValue.setValue(0);
     })
   }
 
@@ -53,7 +53,7 @@ export default class MyAnimat extends Component {
           left: this.state.leftValue,
           transform: [
             {
-              rotateZ: this.state.rotateValue.interpolate({
+              rotateZ: this.state.rotateValue.interpolate({  // 变换比例  0.5 -> 180deg
                 inputRange: [0, 1],
                 outputRange: ['0deg', '360deg']
               })

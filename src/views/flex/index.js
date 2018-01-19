@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { titleColor, contentColor, borderColor, bgColor } from '../../assets/style'
 
+/**
+ *  React Native常用组件样式总结
+ *  see http://blog.csdn.net/violetjack0808/article/details/51329554
+ */
 export default class State extends Component {
 
   constructor (props) {
