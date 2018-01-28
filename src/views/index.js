@@ -17,9 +17,11 @@ class Cell extends Component {
         underlayColor={'#999'}
       >
         <View style={styles.cell}>
-          <Text
-            style={styles.cell_info}
-          >{this.props.title}</Text>
+          <View style={styles.cell_text}>
+            <Text
+              style={styles.cell_info}
+            >{this.props.title}</Text>
+          </View>
           <View style={styles.cell_arrow}/>
         </View>
       </TouchableHighlight>
@@ -58,13 +60,15 @@ const styles = StyleSheet.create({
     borderColor: borderColor,
     borderStyle: 'solid',
     borderBottomWidth: 0.5,
-    paddingBottom: 0.5,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
   },
+  cell_text: {
+    justifyContent: 'center',
+    height: 50
+  },
   cell_info: {
-    lineHeight: 50,
     fontSize: 14,
     color: titleColor,
   },
