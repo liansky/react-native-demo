@@ -44,6 +44,7 @@ export default class Home extends Component {
         <Cell route={'flatList'} title={'FlatList'} {...this.props}/>
         <Cell route={'touch'} title={'Touch'} {...this.props}/>
         <Cell route={'animate'} title={'Animate'} {...this.props}/>
+        <Cell route={'mbox'} title={'Mbox'} {...this.props}/>
       </ScrollView>
     );
   }
