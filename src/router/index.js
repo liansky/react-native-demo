@@ -13,6 +13,7 @@ import Refresh from '../views/scroll/refresh';
 import FlatList from '../views/list';
 import Touch from '../views/touch';
 import MyAnimate from '../views/animat';
+import Mbox from '../views/mbox';
 
 
 // 路由配置
@@ -81,6 +82,12 @@ const RootNavigator = StackNavigator({
     screen: MyAnimate,
     navigationOptions: {
       headerTitle: '动画'
+    }
+  },
+  mbox: {
+    screen: Mbox,
+    navigationOptions: {
+      headerTitle: 'Mbox'
     }
   }
 });
