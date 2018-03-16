@@ -10,7 +10,7 @@ import {
  * 引入这个两个头文件
  * */
 import {observable, action} from 'mobx';
-import {observer} from 'mobx-react/native';
+import {observer} from 'mobx-react';
 
 /*
 * 假数据
@@ -58,19 +58,18 @@ export default class MobxTestSecond extends Component {
 
   render() {
     return (
-      <View style={{}}>
-        <View style={{}}>
-          <Text style={{}} onPress={this.addItem}>增加</Text>
-          <Text style={{}} onPress={this.deleteItem}>删除</Text>
+      <View>
+        <View style={styles.headerBar}>
+          <View style={styles.btn}><Text style={styles.btn} onPress={this.addItem}>增加</Text></View>
+          <View style={styles.btn}><Text style={styles.btn} onPress={this.deleteItem}>删除</Text></View>
         </View>
         <ScrollView>
-          {
-            this.dataManager.dataSource.slice(0).map((item,i)=> <ItemView key = {i} item = {item}/>)
-          }
+          {this.dataManager.dataSource.slice(0).map((item,i)=> <ItemView key = {i} item = {item}/>)}
         </ScrollView>
       </View>
     );
   }
+
 }
 
 
@@ -113,7 +112,7 @@ class DataSource {
   dataSource = [];
 
   // 添加初始数据
-  @action
+  // @action
   replace = (items) => {
     // 1. 清空原数据
     this.dataSource.splice(0, this.dataSource.length);
@@ -125,14 +124,14 @@ class DataSource {
   };
 
   // 添加新数据
-  @action
+  // @action
   addItem = (item) => {
     this.dataSource.unshift(new Item(item));
   };
 
 
   // 删除一条数据
-  @action
+  // @action
   deleteItem = (idx) => {
     this.dataSource.splice(idx, 1);
   };
@@ -162,9 +161,27 @@ class Item {
   /*
   * 商品个数+1
   * */
-  @action
+  // @action
   add = () => {
     this.count += 1;
   };
 
 }
+
+const styles = StyleSheet.create({
+  headerBar: {
+    flexDirection: 'row',
+    height: 40
+  },
+
+  btn: {
+    height: 40,
+    lineHeight: 40,
+    flex: 1,
+    textAlign: 'center',
+    backgroundColor: '#fff',
+    borderRightWidth: 1,
+    borderRightColor: '#ccc',
+    borderStyle: 'solid'
+  }
+})
