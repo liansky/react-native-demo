@@ -5,6 +5,7 @@ import { titleColor, borderColor, bgColor } from '../assets/style'
 
 class Cell extends Component {
   constructor (props) {
+    console.log('123')
     super(props)
   }
 
